@@ -1,0 +1,288 @@
+1. Swap two numbers without using third variable and use one expression.
+
+sol)
+#include<stdio.h>
+
+
+int main() 
+{
+   
+	int x=10;
+   
+	int y=25;
+   
+	x=x+y-(y=x);
+   
+	printf("%d %d",x,y);
+
+}
+
+output :
+25 10
+-----------------------------
+2. Write a C program to accept two integers and check whether they are equal or not.
+
+sol)
+#include<stdio.h>
+
+int main() 
+{
+   
+	int Number1,Number2;
+   
+	scanf("%d",&Number1);
+   
+	scanf("%d",&Number2);
+   
+	if(Number1==Number2)
+   
+	{
+
+       		printf("Number1 and Number2 are equal");
+   
+	}
+   
+	else
+   
+	{
+       
+		printf("Number1 and Number2 are not equal");
+   
+	}
+   
+	return 0;
+
+}
+
+Test Data:
+25
+25
+
+output:
+Number1 and Number2 are equal
+---------------------------------
+3. Write a C program to check whether a given number is positive or negative.
+
+sol)
+#include<stdio.h>
+
+
+int main() 
+{
+   
+	float Number1;
+   
+	scanf("%f",&Number1);
+   
+   
+	if(Number1 > 0)
+   
+	{
+       
+		printf("%.2f is a positive number",Number1);
+   
+	}
+   
+	if(Number1 < 0)
+   
+	{
+       
+	printf("%.2f is a negative number",Number1);
+   
+	}
+	if(Number1 == 0)
+   
+	{
+       
+	printf("%.2f is neither a positive nor negative number",Number1);
+   
+	}
+
+}
+
+Test Data:
+-7
+
+output:
+-7.00 is a negative number
+---------------------------------
+4. Write a C program to check whether a triangle is Equilateral, Isosceles or Scalene.
+
+sol)
+#include<stdio.h>
+int main() 
+{
+	float s1,s2,s3;
+   
+	scanf("%f",&s1);
+   
+	scanf("%f",&s2);
+   
+	scanf("%f",&s3);
+	if(s1 > 0 && s2 > 0 && s3 > 0)
+   
+	{
+	if((s1 == s2) && (s2 == s3))
+   
+	{
+       
+		printf("This is an equilateral triangle.");
+   
+	}
+	else if((s1 == s2) || (s2 == s3)
+  || (s3 == s1))
+
+	{
+		printf("This is an isosceles triangle.");
+
+   	}
+	else if(((s1 != s2) && (s1 != s3)) &&  ((s2 != s3) && (s2 != s1)) &&  ((s3 != s1) 		&& (s3 != s2)))
+	{
+      
+	printf("This is a scalene triangle.");
+
+   	}
+	}
+	else
+	{
+		printf("Please enter valid inputs");
+	}
+}
+
+Test Data:
+10
+35
+20
+
+Output:
+This is a scalene triangle.
+--------------------------------
+5. Write a C program to check whether a character is an alphabet, digit or special character.
+
+sol)
+#include<stdio.h>
+
+int main() 
+{
+   char input;
+   scanf("%c",&input);
+   if(input >= '0' && input <= '9')
+   {
+       printf("This is a digit");
+   }
+   else if((input >= 'a' && input <= 'z') || (input >= 'A' && input <= 'Z'))
+   {
+       printf("This is an alphabet");   
+   }
+   else
+   {
+       printf("This is a special character");
+   }
+}
+Test Data:
+^
+
+Output:
+This is a special character
+---------------------------------
+6. Write a program in C to calculate and print the Electricity bill of a given customer. The customer id., name and unit consumed by the user should be taken from the keyboard and display the total amount to pay to the customer. The charge are as follow : Go to the editor
+
+Unit	                         Charge/unit
+upto 199	                      @1.20
+200 and above but less than 400	@1.50
+400 and above but less than 600	@1.80
+600 and above	@2.00
+If bill exceeds Rs. 400 then a surcharge of 15% will be charged and the minimum bill should be of Rs. 100/-
+
+sol)
+#include<stdio.h>
+
+int main() 
+{
+    int cid;
+    float uc=0,bill=0,sa=0,Tbill=0;
+    char cname[30];
+    scanf("%d",&cid);
+    scanf("%s",cname);
+    scanf("%f",&uc);
+    if (uc <=199)
+    {
+        bill = uc * 1.20;
+    }
+    else if(uc >= 200 && uc < 400)
+    {
+        bill = uc * 1.50;
+    }
+    else if(uc >= 400 && uc < 600)
+    {
+        bill = uc * 1.80;
+    }
+    else if (uc >=600)
+    {
+        bill = uc * 2.00;
+    }
+    if (bill <= 100)
+    {
+        bill = 100;
+    }
+    if(bill > 400)
+    {
+        sa = bill * 0.15;
+        Tbill = bill + sa ; 
+    }
+    else
+    {
+        sa = 0;
+        Tbill = bill  + sa;
+    }
+    printf("Customer IDNO :%d",cid);
+    printf("\nCustomer Name :%s",cname);
+    printf("\nunit Consumed :%f",uc);
+    if (uc <=199)
+    {
+        printf("\nAmount Charges @Rs. 1.20 per unit : %f",bill);
+        printf("\nSurchage Amount : %f",sa);
+        printf("\nNet Amount Paid By the Customer : %f",Tbill);
+    }
+    else if(uc >= 200 && uc < 400)
+    {
+        printf("\nAmount Charges @Rs. 1.50 per unit : %f",bill);
+        printf("\nSurchage Amount : %f",sa);
+        printf("\nNet Amount Paid By the Customer : %f",Tbill);
+    }
+    else if(uc >= 400 && uc < 600)
+    {
+        printf("\nAmount Charges @Rs. 1.80 per unit : %f",bill);
+        printf("\nSurchage Amount : %f",sa);
+        printf("\nNet Amount Paid By the Customer : %f",Tbill); 
+    }
+    else if (uc >=600)
+    {
+        printf("\nAmount Charges @Rs. 1.80 per unit : %f",bill);
+        printf("\nSurchage Amount : %f",sa);
+        printf("\nNet Amount Paid By the Customer : %f",Tbill); 
+    }
+}
+
+Test Data:
+101
+abhi
+1000
+
+Output:
+Customer IDNO :101
+
+Customer Name :abhi
+
+unit Consumed :1000.000000
+
+Amount Charges @Rs. 1.80 per unit : 2000.000000
+
+Surchage Amount : 300.000000
+
+Net Amount Paid By the Customer : 2300.000000
+------------------------
+
+
+
+
