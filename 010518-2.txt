@@ -1,0 +1,126 @@
+1. Usage of strcat
+
+sol)
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char str1[] = "Abhinav ", str2[] = "Chikoti";
+    printf("str1:");
+    puts(str1);  
+    printf("str2:");
+    puts(str2);
+    strcat(str1,str2);
+    printf("str1:");
+    puts(str1);    
+    
+
+    return 0;
+}
+
+Output:
+str1:Abhinav 
+str2:Chikoti
+str1:Abhinav Chikoti
+-----------------------------
+2. Usage of strcmp
+
+sol)
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    int r;
+    char str1[10]="abcd",str2[10]="ABCD";
+    r=strcmp(str1, str2);
+    printf("Comparision of str1:abcd and str2:ABCD\n");
+    printf("%d",r);
+}
+
+Output:
+Comparision of str1:abcd and str2:ABCD
+
+32
+-------------------------------
+3. Usage of strcpy
+
+sol)
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    int r;
+    char str1[10],str2[10]="ABCD";
+    strcpy(str1,str2);
+    printf("str2:");
+    puts(str2);
+    printf("str1:");
+    puts(str1);
+}
+
+output:
+str2:ABCD
+
+str1:ABCD
+---------------------------------
+4. usage of strncpy
+
+sol)
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    int r;
+    char str1[10],str2[10]="ABCD";
+    strncpy(str1,str2,2);
+    printf("str2:");
+    puts(str2);
+    printf("str1:");
+    puts(str1);
+}
+
+Output:
+str2:ABCD
+
+str1:AB
+---------------------------------
+5. Usage of strlen
+
+sol)
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    int l;
+    char str2[10]="ABCD";
+    l=strlen(str2);
+    printf("str2:");
+    puts(str2);
+    printf("length of str2 is %d",l);
+}
+
+Output:
+str2:ABCD
+
+length of str2 is 4
+----------------------------------
+6. Usage of strdup
+
+sol)
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char *str1,*str2="ABCD";
+    str1=strdup(str2);
+    printf("str2:");
+    puts(str2);
+    printf("str1:");
+    puts(str1);
+}
+
+Output:
+str2:ABCD
+
+str1:ABCD
+-----------------------------------
