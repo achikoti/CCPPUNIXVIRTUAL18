@@ -1,0 +1,174 @@
+1. Addition of 2 arrays.
+
+sol)
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+void main()
+{
+int a[100],b[100],c[100],i,j,n;
+printf("\nEnter the size of array:");
+scanf("%d",&n);
+printf("\nEnter the values in first array:");
+for(i=0;i<n;i++)
+{
+   scanf("%d",&a[i]);
+
+}
+printf("\nEnter the values in second array:");
+for(i=0;i<n;i++)
+{
+   scanf("%d",&b[i]);
+
+}
+printf("\nAddition of two arrays:");
+for(i=0;i<n;i++)
+{
+c[i]=a[i]+b[i];
+}
+for(i=0;i<n;i++)
+{
+printf("c[%d]=%d",i,c[i]);
+}
+
+
+}
+
+Test Data:
+Enter the size of array:
+2
+Enter the values in first array:
+
+3
+2
+Enter the values in second array:
+3
+2
+
+Output:
+Addition of two arrays:c[0]=6c[1]=4
+------------------------------------------------
+2. Implementation of ceil,floor,sqrt using math.h
+
+sol)
+#include<stdio.h>
+#include<math.h>
+void main()
+{
+    double c,d,e;
+    int b=4;
+    float a=3.4;
+    c=floor(a);
+    printf("%lf\n",a);
+    d=sqrt(b);
+    printf("%lf",d);
+    e=ceil(a);
+    printf("%lf",e);
+}
+
+Output:
+3.400000
+
+2.000000
+4.000000
+-------------------------------------------
+3. Printing from z to A.
+
+sol)
+#include<stdio.h>
+void main()
+{
+    char c;
+    int d,e;
+    for(c='z';c>='a';c--)
+    {
+        printf("%c\n",c);
+    }
+    for(c='Z';c>='A';c--)
+    {
+        printf("%c\n",c);
+    }
+}
+
+Output:
+z
+y
+x
+w
+v
+u
+t
+s
+r
+q
+p
+o
+n
+m
+l
+k
+j
+i
+h
+g
+f
+e
+d
+c
+b
+a
+Z
+Y
+X
+W
+V
+U
+T
+S
+R
+Q
+P
+O
+N
+M
+L
+K
+J
+I
+H
+G
+F
+E
+D
+C
+B
+A
+-------------------------
+4. Printing from 10 to 1.
+
+sol)
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+int main()
+{
+    int i;
+    for(i=10;i>0;i--)
+    {
+        printf("%d\n",i);
+    }
+    
+}
+
+Output:
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+------------------------
