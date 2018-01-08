@@ -1,0 +1,208 @@
+1. Write five statements to print the asterisk pattern:
+*****
+*****
+*****
+
+sol)
+#include<stdio.h>
+
+int main() {
+   for(int i=1;i<=3;i++)
+   {
+       printf("*****");
+       printf("\n");
+   }
+}
+
+Output:
+*****
+*****
+*****
+-------------------------------
+2. Write C code that will display the calculator menu.
+	The program will prompt the user to choose the operation choice (from 1 to 5). Then it asks the user to input two integer vales for the calculation. See the sample below. 
+	  MENU 
+	          1. Add 
+	          2. Subtract 
+	          3. Multiply 
+	          4. Divide 
+	          5. Modulus 
+	Enter your choice: 1 
+	Enter your two numbers: 12 15 
+	Result: 27 
+	  
+	Continue? y 
+	  
+	The program also asks the user to decide whether he/she wants to continue the operation. If he/she input ‘y’, the program will prompt the user to choose the operation gain. Instead, the program will terminate.
+
+sol)
+
+Output:
+------------------------------------
+3. Write a program that will ask the user to input three integer values from the keyboard. Then it will print the smallest and largest of those numbers. 
+
+sol)
+#include<stdio.h>
+
+int main() {
+   float x,y,z;
+   printf("Enter three values:");
+   scanf("%f",&x);
+   scanf("%f",&y);
+   scanf("%f",&z);
+   printf("\n");
+   printf("The bigger one is:");
+   if(x>y && x>z)
+   {
+       printf("\n");
+       printf("%f",x);
+   }
+   else if(y>z)
+   {
+       printf("\n");
+       printf("%f",y);
+   }
+   else
+   {
+       printf("\n");
+       printf("%f",z);
+   }
+   printf("\n");
+   printf("The smaller one is:");
+   if(x<y && x<z)
+   {
+       printf("\n");
+       printf("%f",x);
+   }
+   else if(y<z)
+   {
+       printf("\n");
+       printf("%f",y);
+   }
+   else
+   {
+       printf("\n");
+       printf("%f",z);
+   }
+}
+
+Test Data:
+Enter three values:
+
+1
+2
+3
+Output:
+The bigger one is:
+
+3.000000
+
+The smaller one is:
+
+1.000000
+-------------------------------------
+4. Write a C program to check whether year is leap year or not using conditional operator.
+
+sol)
+#include<stdio.h>
+
+int main() {
+   int y,x;
+   printf("Enter the year:");
+   scanf("%d",&y);
+   x=(y%400 == 0)?:(y%100 != 0)?(y%4 == 0)?1:0:0;
+   if(x==1)
+   {
+       printf("\n");
+       printf("%d is a leap year",y);
+   }
+   else
+   {
+       printf("\n");
+       printf("%d is not a leap year",y);
+   }
+}
+
+Test Data:
+Enter the year:
+2007
+Output:
+2007 is not a leap year
+-------------------------------------
+5. Write a C program to print all Armstrong numbers between 1 to n.
+ 
+sol)
+#include<stdio.h>
+int main()
+{
+int i, a, r, s, n ;
+printf("Enter the limit : ") ;
+scanf("%d",&n) ;
+printf("\nThe armstrong numbers from 1 to %d are:\n\n",n) ;
+for(i = 0 ; i <= n ; i++)
+{
+a = i ;
+s = 0 ;
+while(a > 0)
+{
+r = a % 10 ;
+s = s + (r * r * r) ;
+a = a / 10 ;
+}
+if(i == s)
+printf("%d\t", i) ;
+}
+}
+
+Test Data:
+Enter the limit : 
+100
+Output:
+The armstrong numbers from 1 to 100 are:
+
+
+0	1	
+-------------------------------------
+6. Write a C program to print all ASCII character with their values.
+ 
+sol)
+#include<stdio.h>
+int main() {
+   int i = 0;
+   char c;
+   for (i = 0; i < 256; i++)
+   {
+      printf("%d=%c ",i,c);
+      printf("\n");
+      c++;
+   }
+
+--------------------------------------
+7. C program for ternary operator?
+
+sol)
+int main() {
+   int x,y,z;
+   printf("Enter two values:");
+   scanf("%d",&x);
+   scanf("%d",&y);
+   z=(x>y)?1:0;
+   if(z==1)
+   {
+       printf("\n");
+       printf("%d is greater",x);
+   }
+   else
+   {
+       printf("\n");
+       printf("%d is greater",y);
+   }
+}
+
+Test Data:
+Enter two values:
+1
+2
+Output:
+2 is greater
+-----------------------------------------
