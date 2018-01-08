@@ -1,0 +1,225 @@
+1. Working of IF statement.
+
+sol)
+#include<stdio.h>
+
+int main()
+{
+    int a;
+    scanf("%d",&a);
+    if(a%2==0)
+    {
+        printf("%d is not an odd number",a);
+    }
+    else
+    {
+        printf("%d is  a odd number",a);
+    }
+    
+}
+
+Test Data:
+4
+
+Output:
+4 is not an odd number
+--------------------------------
+2. Working of Switch Statement.
+
+sol)
+#include<stdio.h>
+
+int main() {
+   char x;
+   scanf("%c",&x);
+   switch(x)
+   {
+       case 'a':
+       printf("The alphabet entered is %c",x);
+       break;
+       case 'b':
+       printf("The alphabet entered is %c",x);
+       break;
+       case 'c':
+       printf("The alphabet entered is %c",x);
+       break;
+       case 'z':
+       printf("The alphabet entered is %c",x);
+       break;
+       default:
+       printf("The entered alphabet is %c,which is neither of a,b,c,z",x);
+   }
+}
+
+Test Data:
+y
+
+Output:
+The entered alphabet is y,which is neither of a,b,c,z
+------------------------------------------
+3. Working of while Statement.
+
+sol)
+#include<stdio.h>
+
+int main()
+{
+    int a,f;
+    printf("Enter the value of a:");
+    scanf("%d",&a);
+    f=1;
+    while(a>0)
+    {
+        f=f*a;
+        a--;
+    }
+    printf("\n");
+    printf("The factorial is %d",f);
+}
+
+
+Test Data:
+Enter the value of a:5
+
+Output:
+The factorial is 120
+--------------------------------------------
+4. Working of do-while statement.
+
+sol)
+#include<stdio.h>
+
+int main() {
+  int n,s=0;
+  
+  do
+  {
+      printf("\n");
+      printf("Enter the number");
+      scanf("%d",&n);
+      s=s+n;
+  }while(n!=0);
+  
+  printf("The sum till now is %d",s);
+}
+
+Test Data:
+Enter the number5
+Enter the number6
+Enter the number0
+
+Output:
+The sum till now is 11
+--------------------------------------------
+5. Working of Enum.
+
+sol)
+#include<stdio.h>
+
+int main() {
+    int a;
+   enum animals {lion=1,cat,zebra,buffalo};
+   printf("Enter the value:");
+   scanf("%d",&a);
+   printf("\n");
+   switch(a)
+   {
+       case 1:
+       printf("Your selected animal is lion");
+       break;
+       case 2:
+       printf("Your selected animal is cat");
+       break;
+       case 3:
+       printf("Your selected animal is zebra");
+       break;
+       case 4:
+       printf("Your selected animal is buffalo");
+       break;
+       default:
+       printf("Your selection %d is out of range, please select within the range(%d to %d)",a,lion,buffalo);
+   }
+}
+
+Test Data:
+Enter the value:3
+
+Output:
+Your selected animal is zebra
+---------------------------------------------------------
+5. Working of For Statement.
+
+sol)
+#include<stdio.h>
+
+int main() {
+   int x;
+   for(x=0;x<=5;x++)
+   {
+   printf("value of x = %d", x);
+   printf("\n");
+   }
+}
+
+Output:
+value of x = 0
+value of x = 1
+value of x = 2
+value of x = 3
+value of x = 4
+value of x = 5
+-------------------------------------------------------
+6. Working with functions.
+
+sol)
+#include<stdio.h>
+
+int main() {
+    int i;
+  forfunc(i);
+  whilefunc(i);
+  dowhilefunc(i);
+}
+int forfunc(int i)
+{
+    for(i=1;i<=3;i++)
+    {
+        printf("2 * %d = %d",i,(2*i));
+        printf("\n");
+    }
+}
+int whilefunc(int i)
+{
+    i=1;
+    while(i<=3)
+    {
+        printf("2 * %d = %d",i,(2*i));
+         printf("\n");
+        i++;
+        
+    }
+}
+int dowhilefunc(int i)
+{
+    i=1;
+    do
+    {
+      printf("2 * %d = %d",i,(2*i));
+       printf("\n");
+      i++;
+    }while(i<=3);
+}
+
+Output:
+2 * 1 = 2
+2 * 2 = 4
+2 * 3 = 6
+2 * 1 = 2
+2 * 2 = 4
+2 * 3 = 6
+2 * 1 = 2
+2 * 2 = 4
+2 * 3 = 6 
+--------------------------------
+
+
