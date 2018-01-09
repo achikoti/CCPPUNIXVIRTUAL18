@@ -1,0 +1,49 @@
+1. Working of Call By Value.
+
+sol)
+#include<stdio.h>  
+void cbv(int n) {    
+    printf("Before adding value inside function num=%d \n",n);    
+    n=n+50;    
+    printf("After adding value inside function num=%d \n", n);    
+}    
+int main() {    
+    int x=100;    
+    printf("Before function call x=%d \n", x);    
+    cbv(x);//passing value in function    
+    printf("After function call x=%d \n", x);    
+return 0;  
+}  
+
+Output:
+Before function call x=100 
+
+Before adding value inside function num=100 
+
+After adding value inside function num=150
+
+After function call x=100
+-----------------------------------------------------
+2. Working of Call By Reference.
+
+sol)
+#include<stdio.h>  
+void cbr(int *n) {    
+    printf("Before adding value inside function num=%d \n",*n);    
+    (*n) = *n + 50;    
+    printf("After adding value inside function num=%d \n", *n);    
+}      
+int main() {    
+    int x=100;    
+    printf("Before function call x=%d \n", x);    
+    cbr(&x);//passing reference in function    
+    printf("After function call x=%d \n", x);    
+return 0;  
+}
+
+Output:
+Before function call x=100 
+Before adding value inside function num=100 
+After adding value inside function num=150 
+After function call x=150
+------------------------------------------------------

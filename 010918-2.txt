@@ -1,0 +1,189 @@
+1. program to accept five integer values from keyword. The five values will be stored in an array using a pointer. Then print the elements of the array on the screen.
+
+sol)
+#include<stdio.h> 
+#include<conio.h>   
+   int main() 
+    { 
+     int arr[5],i; 
+     int *p=arr; 
+     printf("Enter five numbers separated by space:"); 
+     scanf("%d%d%d%d%d",p,p+1,p+2,p+3,p+4); 
+     printf("Your numbers are:\n"); 
+     for(i=0;i<5;i++) 
+        printf("%d\n",arr[i]);      
+     getch(); 
+     return 0;   
+    } 
+Test Data:
+Enter five numbers separated by space:1 2 3 4 5
+
+
+Output:
+1
+
+2
+
+3
+
+4
+
+5
+-------------------------------------------------------------
+
+2. C program to read two numbers from user and add them using pointers. How to find sum of two number using pointers in C programming. Program to perform arithmetic operations on number using pointers.
+
+
+sol)
+
+#include<stdio.h>
+int x,y;
+void add( int *x,int *y)
+{
+	int z= *x + *y;
+	printf("Addition Result: %d\n",z);
+}
+void sub( int *x,int *y)
+{
+	int z= *x - *y;
+	printf("Subtraction Result: %d\n",z);
+}
+void mul( int *x,int *y)
+{
+	int z= *x * *y;
+	printf("Multiplication Result: %d\n",z);
+}
+void div( int *x,int *y)
+{
+	int z= *x / *y;
+	printf("Quotient: %d\n",z);
+}
+void main()
+{
+	printf("Enter two numbers:");
+	scanf("%d%d",&x,&y);
+	add(&x,&y);
+	sub(&x,&y);
+	mul(&x,&y);
+	div(&x,&y);
+}
+
+
+Test Data:
+
+Enter two numbers:10 20
+
+
+Output:
+
+Addition Result: 30
+
+Subtraction Result: -10
+
+Multiplication Result: 200
+
+Quotient: 0
+
+---------------------------------------------
+3. C program to swap two numbers using pointers and functions. How to swap two numbers using call by reference method. Logic to swap two number using pointers in C program.
+
+sol)
+#include<stdio.h>
+int x,y;
+void swaps(int *x, int *y)
+{
+	int t;
+	t = *x;
+	*x = *y;
+	*y= t;
+	printf("Num1:%d\n",*x);
+	printf("Num2:%d\n",*y);
+}
+void main()
+{
+	
+	printf("Num1:");
+	scanf("%d",&x);
+	printf("Num2:");
+	scanf("%d",&y);
+	printf("Values after Swapping:\n");
+	swaps(&x,&y);
+}
+
+Test Data:
+Num1:1
+Num2:2
+
+Output:
+Values after Swapping:
+Num1:2
+
+Num2:1
+-------------------------------------------------------
+4. C program to count total number of words in a string using loop. How to find total number of words in a given string using loops in C programming. Logic to count total number of words in a string.
+
+sol)
+#include <stdio.h>
+#include <conio.h>
+void main(){
+     char s[50],ch;
+     int i,c=0;
+     printf("Enter the string : ");
+     for(i=0;ch!='\n';i++)
+	 {
+     ch=getchar();
+     s[i]=ch;
+     }
+     s[i]='\0';
+
+     for(i=0;s[i]!='\0';i++)
+	 {
+    if(s[i]==' '){
+       c++;
+       while(s[i]==' ')
+        i++;
+    }
+     }
+     printf("\n\nTotal words: %d",c+1);
+     getch();
+} 
+
+Test Data:
+Enter the string : love for codewin
+
+Output:
+Total words: 3
+---------------------------------------------
+5. C program to transfer data from one file to another file.
+
+sol)
+#include<stdio.h>
+
+void main()
+{
+    
+    FILE *fp1, *fp2;
+    char ch;
+    int pos;
+
+    if ((fp1 = fopen("one.txt", "r")) == NULL)
+    {
+        printf("\nFile cannot be opened.");
+        return;
+    }
+    else
+    {
+        printf("\nFile opened for copy...\n ");
+    }
+    fp2 = fopen("two.txt", "w");
+    fseek(fp1, 0L, SEEK_END); 
+    pos = ftell(fp1);
+    fseek(fp1, 0L, SEEK_SET);
+    while (pos--)
+    {
+        ch = fgetc(fp1);
+        fputc(ch, fp2);
+    }
+    fclose(fp1);
+    fclose(fp2);
+}
