@@ -1,0 +1,583 @@
+1. Inheritance types.
+
+sol)
+-----------------------------------------------------
+a) Single Inheritance concept for Addition programme:
+-----------------------------------------------------
+#include<iostream>
+using namespace std;
+
+class Add          //Base Class
+{
+protected:
+	int num1, num2;
+public:	
+	void accept()
+        {
+         	cout<<"\n Enter First Number : ";
+                cin>>num1;
+                cout<<"\n Enter Second Number : ";
+                cin>>num2;
+        }
+};
+class Addition: public Add   //Class Addition – Derived Class
+{
+       int sum;
+       public:
+       void add()
+       {
+        	sum = num1 + num2;
+       }	
+       void display()
+       {
+                cout<<"\n Result of Addition : "<<sum;
+       }	
+};
+int main()
+{
+        Addition a;
+        a.accept();
+        a.add();
+        a.display();
+        return 0;
+}
+
+Test Data:
+Enter First Number : 10
+Enter Second Number : 20
+
+Output:
+Result of Addition : 30 
+-------------------------------------------------------
+b) Multiple Inheritance concept for Addition programme:
+-------------------------------------------------------
+#include<iostream>
+using namespace std;
+
+class n {
+protected:
+    int m1;
+public:
+
+    void get1() {
+
+        cout << "Input1:"<<endl;
+        cin >> m1;
+    }
+};
+
+class m {
+public:
+    int m2;
+    void get2() {
+
+        cout << "Input2:"<<endl;
+        cin >> m2;
+    }
+
+
+};
+
+class add : public n, public m {
+    int tot ;
+public:
+
+    void display() {
+        tot = (m1 + m2);
+          cout<<"Result of Addition: " << tot;
+     }
+};
+
+int main() {
+    add obj;
+    obj.get1();
+    obj.get2();
+    obj.display();
+}
+
+Test Data:
+Input1:10
+Input2:20
+
+Output:
+Result of Addition: 30
+--------------------------------------------------------------
+c) Multilevel Inheritance concept for Addition of two numbers.
+--------------------------------------------------------------
+#include <iostream>
+using namespace std;
+
+class A
+{
+    public:
+      void display()
+      {
+          cout<<"Base class"<<endl;
+      }
+};
+
+class B : public A
+{
+public:
+int a=10;
+};
+
+class C : public B
+{
+ public:
+int b=20;
+};
+
+int main()
+{
+    C obj;
+    int c= obj.a+obj.b;
+    cout<<"Result of addition: "<<c<<endl;    
+    obj.display();
+    return 0;
+}
+
+Output:
+Result of addition: 30
+Base class
+-----------------------------------------------------
+d) Hybrid Inheritance concept for Addition programme.
+-----------------------------------------------------
+#include<iostream>
+using namespace std;
+class base1{
+    public:
+    
+    int a=10;
+    void msg1()
+    {
+    cout<<"Input1:"<<a<<endl;
+    }
+};
+ 
+class base2{
+    public:
+    
+    int b=20;
+    void msg2()
+    {
+    cout<<"Input2:"<<b<<endl;
+    }
+};
+ 
+class r1 : public base1,public base2{
+  base1 b1;
+  base2 b2;
+  public:
+  
+  int c=b1.a+b2.b;
+  
+    
+};
+ 
+class r2 : public r1, public base2{
+  r1 z;
+  public:
+  
+  void msg(){
+      cout<<"Result of Addition: "<<z.c<<endl;
+  }
+    
+};
+ 
+ 
+ 
+int main(){
+   base1 b1;
+   base2 b2;
+   r1 z;
+   r2 y;
+   
+   
+   
+   b1.msg1();
+   b2.msg2();
+   y.msg();
+  
+    
+  return 0;
+}
+
+Output:
+Input1:10
+Input2:20
+Result of Addition: 30
+------------------------------------
+e) Hierarchical Inheritance concept.
+------------------------------------
+#include<iostream>
+using namespace std;
+class base{
+  public:
+  void rbc1(){
+    cout<<"base - rbc1"<<endl;  
+  }  
+};
+ 
+class der1 : public base{
+    public:
+    void rbc2(){
+      cout<<"der1 - rbc2"<<endl;      
+    }
+};
+ 
+class der2 : public base{
+    public:
+    void rbc3(){
+        cout<<"der2 - rbc3"<<endl;
+    }
+};
+ 
+int main(){
+   
+   base b;
+   b.rbc1();
+   
+   der1 d1;
+   d1.rbc1();
+   d1.rbc2();
+   
+   der2 d2;
+   d2.rbc1();
+   d2.rbc3();
+  return 0;
+}
+
+Output:
+base - rbc1
+base - rbc1
+der1 - rbc2
+base - rbc1
+der2 - rbc3
+==============================================================
+2. Protected inheritance concept for Calculator programme.
+
+sol)
+#include <iostream>
+using namespace std;
+   
+class base {
+protected:
+  int i, j; // private to base, but accessible by derived
+public:
+  void setij(int a, int b) 
+  { 
+    i=a; 
+    j=b; 
+      
+  }
+  void showij() 
+  {
+     cout<<"\n"; 
+     cout<<"Input1:";
+     cout << i <<endl;
+     cout<<"Input2:";
+     cout << j <<endl;
+  }
+};
+
+// Inherit base as protected.
+class Add : protected base{
+  int r;
+public:
+  void sk()
+  {
+    setij(5, 7);
+    r = i+j;
+  }
+  void sall() 
+  {
+    cout<<"Addition  Result:";  
+    cout << r << " ";
+    showij();
+  }
+};
+
+// Inherit base as protected.
+class Sub : protected base{
+  int r;
+public:
+  void sk()
+  {
+    setij(7, 5);
+    r = i-j;
+  }
+  void sall() 
+  {
+    cout<<"Subtraction  Result:";  
+    cout << r << " ";
+    showij();
+  }
+};
+   
+// Inherit base as protected.
+class Mul : protected base{
+  int k;
+public:
+  void sk()
+  {
+    setij(10, 12);
+    k = i*j;
+  }
+  void sall() 
+  {
+    cout<<"Multiplication Result:";  
+    cout << k << " ";
+    showij();
+  }
+};
+
+// Inherit base as protected.
+class Divi : protected base{
+  int r;
+public:
+  void sk()
+  {
+    setij(15, 5);
+    r = i/j;
+  }
+  void sall() 
+  {
+    cout<<"Division Result(Quotient):";  
+    cout << r << " ";
+    showij();
+  }
+};
+
+// Inherit base as protected.
+class Modu : protected base{
+  int r;
+public:
+  void sk()
+  {
+    setij(15, 5);
+    r = i%j;
+  }
+  void sall() 
+  {
+    cout<<"Division Result(Remainder):";  
+    cout << r << " ";
+    showij();
+  }
+};
+   
+int main()
+{
+  Add a;
+  Sub s;
+  Mul m;
+  Divi d;
+  Modu mo;
+  
+  a.sk();
+  a.sall();
+  cout<<"\n";
+  s.sk();
+  s.sall();
+  cout<<"\n";
+  m.sk(); 
+  m.sall(); 
+  cout<<"\n";
+  d.sk(); 
+  d.sall();
+  cout<<"\n";
+  mo.sk();
+  mo.sall();
+   
+  return 0;
+}
+
+Output:
+Addition  Result:12 
+Input1:5
+Input2:7
+
+Subtraction  Result:2 
+Input1:7
+Input2:5
+
+Multiplication Result:120 
+Input1:10
+Input2:12
+
+Division Result(Quotient):3 
+Input1:15
+Input2:5
+
+Division Result(Remainder):0 
+Input1:15
+Input2:5
+=======================================================
+3. Inline concept used for Calculator programme
+ 
+sol)
+#include <iostream>
+ 
+using namespace std;
+
+inline int Add(int x, int y) 
+{
+   return (x+y);
+}   
+inline int Sub(int x, int y) 
+{
+   return (x-y);
+}
+inline int Mul(int x, int y) 
+{
+   return (x*y);
+}
+inline int Divi(int x, int y) 
+{
+   return (x/y);
+}
+inline int Modu(int x, int y) 
+{
+   return (x%y);
+}
+
+// Main function for the program
+int main() {
+   cout << "Result of Addition: " << Add(5,7) << endl;
+   cout << "Result of subtraction: " << Sub(7,5) << endl;
+   cout << "Result of Multiplication: " << Mul(5,7) << endl;
+   cout << "Result of Division(Quotient): " << Divi(15,5) << endl;
+   cout << "Result of Modulus operation(Remainder): " << Modu(15,5) << endl;
+   
+   
+   
+   return 0;
+}
+
+Output:
+Result of Addition: 12
+Result of subtraction: 2
+Result of Multiplication: 35
+Result of Division(Quotient): 3
+Result of Modulus operation(Remainder): 0
+================================================================
+4. Friend concept used for calculator programme
+
+sol)
+#include<iostream>
+using namespace std;
+
+class Add
+{
+    public:
+        int x;
+        int y;
+        int z;
+    public:
+        Add(): x(5),y(7),z(0) { }
+        //friend function
+        friend int add(Add);
+};
+
+class Sub
+{
+    public:
+        int x;
+        int y;
+        int z;
+    public: 
+    Sub(): x(7),y(5),z(0) { }
+     //friend function
+    friend int sub(Sub);
+};
+
+class Mul
+{
+    public:
+        int x;
+        int y;
+        int z;
+    public: 
+    Mul(): x(7),y(5),z(0) { }
+     //friend function
+    friend int mul(Mul);
+};
+
+class Divi
+{
+    public:
+        int x;
+        int y;
+        int z;
+    public: 
+    Divi(): x(15),y(5),z(0) { }
+     //friend function
+    friend int divi(Divi);
+};
+
+class Modu
+{
+    public:
+        int x;
+        int y;
+        int z;
+    public: 
+    Modu(): x(15),y(5),z(0) { }
+     //friend function
+    friend int modu(Modu);
+};
+
+// friend function definition
+int add(Add a)
+{
+    //accessing private data from non-member function
+    a.z=a.x+a.y;
+    return a.z;
+}
+int sub(Sub s)
+{
+    //accessing private data from non-member function
+    s.z=s.x-s.y;
+    return s.z;
+}
+int mul(Mul m)
+{
+    //accessing private data from non-member function
+    m.z=m.x*m.y;
+    return m.z;
+}
+int divi(Divi d)
+{
+    //accessing private data from non-member function
+    d.z=d.x/d.y;
+    return d.z;
+}
+int modu(Modu mo)
+{
+    //accessing private data from non-member function
+    mo.z=mo.x%mo.y;
+    return mo.z;
+}
+
+int main()
+{
+    Add a;
+    Sub s;
+    Mul m;
+    Divi d;
+    Modu mo;
+    cout<<"Result of Addition: "<< add(a)<<endl;
+    cout<<"Result of Subtraction: "<< sub(s)<<endl;
+    cout<<"Result of Multiplication: "<< mul(m)<<endl;
+    cout<<"Result of Division(Quotient- '/' operation): "<<divi(d)<<endl;
+    cout<<"Result of Division(Remainder- '%' operation): "<<modu(mo)<<endl;
+    return 0;
+}
+
+Output:
+Result of Addition: 12
+Result of Subtraction: 2
+Result of Multiplication: 35
+Result of Division(Quotient- '/' operation): 3
+Result of Division(Remainder- '%' operation): 0
+======================================================================================
