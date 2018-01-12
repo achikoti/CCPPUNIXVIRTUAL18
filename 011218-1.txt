@@ -1,0 +1,89 @@
+1. Storage classes
+
+sol)
+
+Static:
+
+#include<iostream>
+using namespace std;
+
+void func() {
+   static int count = 0;
+   count++;
+   cout << "Function is called " << count << " times " << endl;
+}
+
+int main() {
+   cout << "Calling Function :- " << endl;
+   func();
+   cout << "Calling Function :- " << endl;
+   func();
+   cout << "Calling Function :- " << endl;
+   func();
+   return 0;
+}
+
+Output:
+Calling Function :- 
+Function is called 1 times 
+Calling Function :- 
+Function is called 2 times 
+Calling Function :- 
+Function is called 3 times 
+----------------
+Register:
+#include<iostream>
+using namespace std;
+
+int main()
+{
+int num1=10,num2=20;
+register int sum;
+
+sum = num1 + num2;
+
+cout<<"\nSum of Numbers :"<<sum;
+}
+
+Output:
+Sum of Numbers :30
+---------------------
+Extern:
+#include<iostream>
+using namespace std;
+ int g;
+void print(){
+	 g = 10;
+	 cout << "g is " << g << endl;
+}
+int main(){
+	g = 7;
+  	cout << "g is " << g << endl;
+  	print();
+	return 0;
+}
+
+Output:
+g is 7
+g is 10
+
+----------------------------
+Auto:
+
+#include <iostream>
+using namespace std;
+int sum(int n1, int n2){
+	 int s;        
+	 s = n1+n2;
+	 return s;
+}
+
+int main(){
+	int i = 2, j = 3, k;
+  	k = sum(i, j);
+  	std::cout << "sum is " << k << std::endl;
+	return 0;
+}
+
+Output:
+sum is 5
